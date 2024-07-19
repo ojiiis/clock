@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app-continer{
+            width: 350px;
+            height: 350px;
+            background: transparent;
+            border-radius: 50%;
+        }
+        #app{
+            width: 100%;
+            height: 100%;
+            background: rgb(67, 244, 3);
+            border-radius: 50%;
+            position: relative;
+        }
+        .hands{
+            height: 50%;
+            width: 2px;
+            
+            position: absolute;
+            left:50%;
+            transform: translate(-50%);
+            display:flex;
+            align-items: flex-end;
+            transform-origin:bottom;
+        }
+        .filer{
+            height: 80%; 
+            width: 100%; 
+            
+        }
+        #second .filer{
+            background-color: red;
+        }
+
+          #minute{
+           width: 5px;
+          }
+          #hour{
+            width: 10px; 
+          }
+          #minute .filer{
+            background-color: rgb(6, 6, 6);
+            height:70% ;
+          }
+          #hour .filer{
+            background-color: rgb(6, 6, 6);
+            height:60% ;
+          }
+          .label{
+            position: absolute;
+            left:50%;
+            transform: translate(-50%);
+          }
+    </style>
+</head>
+<body>
+    <a href="index.html">Go back home</a>
+    <div id="app-continer">
+        <div id="app">
+           <div class="label">12</div>
+           
+            <div class="hands" id="hour">
+                <div class="filer"></div>
+            </div>
+            <div class="hands" id="minute">
+                <div class="filer"></div>
+            </div>
+            <div class="hands" id="second">
+                <div class="filer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var sec = document.getElementById("second");
+        var min = document.getElementById("minute");
+        var sec_start= 0;
+        var min_start = 0;
+        var hour_start = 0;
+
+        function moveMinute(){
+           min_start += 6;
+           if(min_start >= 360){
+              min_start = 0; 
+            }
+           min.style.rotate = min_start+"deg";    
+        }
+        setInterval(function(){
+            sec_start += 6;
+            if(sec_start >= 360){
+                sec_start = 0;
+                moveMinute(); 
+            }
+            sec.style.rotate = sec_start+"deg";    
+        },1000);
+    </script>
+</body>
+</html>
