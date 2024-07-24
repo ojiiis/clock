@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="label">Sample</div>
+    <script>
+        var label = document.getElementById("label");
+        var op = 0;
+        var currentContent = 0;
+        var content = [
+            "sample",
+            "design",
+            "css"
+        ]
+        setInterval(function(){
+
+               if(op == 0){
+                op = 1;
+                label.innerText = content[currentContent]
+                label.style.opacity = op
+               }else{
+                op = 0
+                label.style.opacity = op
+               }
+               currentContent++;
+               if(currentContent > 2){
+                currentContent = 0
+               }
+        },500)
+        //
+    </script>
+</body>
+</html>

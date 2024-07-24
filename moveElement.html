@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #otter{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: black;
+        }
+        #inner{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-color: white;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="otter">
+        <div id="inner" ></div>
+    </div>
+
+    <script>
+        var inner = document.getElementById("inner");
+       var start = 0
+        setInterval(function(){
+            start += 12;
+            inner.style.left = start+"px";
+        },100)
+    </script>
+</body>
+</html>
