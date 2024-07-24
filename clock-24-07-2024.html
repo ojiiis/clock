@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app-continer{
+            width: 350px;
+            height: 350px;
+            background: transparent;
+            border-radius: 50%;
+        }
+        #app{
+            width: 100%;
+            height: 100%;
+            background: rgb(67, 244, 3);
+            border-radius: 50%;
+            position: relative;
+        }
+        .hands{
+            height: 50%;
+            width: 2px;
+            
+            position: absolute;
+            left:50%;
+            transform: translate(-50%);
+            display:flex;
+            align-items: flex-end;
+            transform-origin:bottom;
+        }
+        .filer{
+            height: 80%; 
+            width: 100%; 
+            
+        }
+        #second .filer{
+            background-color: red;
+        }
+
+          #minute{
+           width: 5px;
+          }
+          #hour{
+            width: 10px; 
+          }
+          #minute .filer{
+            background-color: rgb(6, 6, 6);
+            height:70% ;
+          }
+          #hour .filer{
+            background-color: rgb(6, 6, 6);
+            height:60% ;
+          }
+          .label{
+           width: 20px;
+           height: 50%;
+           background:transparent;
+           position: absolute;
+           left: 50%;
+           transform: translate(-50%);
+           transform-origin: bottom;
+           
+          
+          }
+          #num_3{
+            rotate:90deg; 
+          }
+          #num_3 div{
+            rotate:90deg;
+            rotate:-90deg;
+            padding-right: 50px;
+          }
+
+          #num_3{
+            rotate:90deg; 
+          }
+          #num_3 div{
+            
+            rotate:-90deg;
+            padding-right: 50px;
+          }
+
+
+          #num_6{
+            rotate:180deg; 
+          }
+          #num_6 div{
+          
+            rotate:-180deg;
+            
+          }
+
+
+          #num_9{
+            rotate:270deg; 
+          }
+          #num_9 div{
+            rotate:-270deg;
+           
+          }
+          #cap{
+            width: 20px;
+            height: 20px;
+            background: pink;
+            border-radius: 50%;
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+          }
+    </style>
+</head>
+<body>
+    <a href="index.html">Go back home</a>
+    <div id="app-continer">
+        <div id="app">
+            
+           <div class="label" id="num_12"><div>12</div></div>
+           <div class="label" id="num_3"><div>3</div></div>
+           <div class="label" id="num_6"><div>6</div></div>
+           <div class="label" id="num_9"><div>9</div></div>
+            <div class="hands" id="hour">
+                <div class="filer"></div>
+            </div>
+            <div class="hands" id="minute">
+                <div class="filer"></div>
+            </div>
+            <div class="hands" id="second">
+                <div class="filer"></div>
+            </div>
+            <div id="cap"></div>
+        </div>
+    </div>
+
+   <script>
+    var secHand = document.getElementById("second");
+    var secStartingPoint = 0;
+    var minHand = document.getElementById("minute");
+    var minStartingPoint = 0;
+    function moveSec(){
+        secStartingPoint += 6;
+        if(secStartingPoint >= 360){
+            moveMin()
+        secStartingPoint = 0;  
+        }
+        secHand.style.rotate = secStartingPoint+"deg"
+    }
+    function moveMin(){
+        minStartingPoint += 6;
+        if(minStartingPoint >= 360){
+            //call moveHr function
+        minStartingPoint = 0;  
+        }
+        minHand.style.rotate = minStartingPoint+"deg"
+       
+    }
+    setInterval(moveSec,1000)
+   </script>
+</body>
+</html>
